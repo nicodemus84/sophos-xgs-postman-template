@@ -1,0 +1,712 @@
+<Request>
+    <Login>
+        <Username>{{username}}</Username>
+        <Password>{{password}}</Password>
+    </Login>
+    <Remove>
+        <DHCPServer transactionid="Remove Default DHCP Server">
+            <Name>Default_DHCP_Server</Name>
+        </DHCPServer>
+        <WirelessGrouping transactionid="Remove Default Wireless Group">
+            <Name>DefaultGroup</Name>
+        </WirelessGrouping>
+        <WirelessNetworks transactionid="Remove Default GuestAP wireless network">
+            <Name>GuestAP</Name>
+            <wltype>1</wltype>
+        </WirelessNetworks>
+        <WirelessNetworks transactionid="Remove Default Sophos wireless network">
+            <Name>Sophos</Name>
+            <wltype>1</wltype>
+        </WirelessNetworks>
+        <FirewallRule transactionid="Remove default firewall rules">
+            <Name>[example] Traffic to Internal Zones</Name>
+            <PolicyType>User</PolicyType>
+        </FirewallRule>
+        <FirewallRule transactionid="Remove default firewall rules">
+            <Name>[example] Traffic to WAN</Name>
+            <PolicyType>Network</PolicyType>
+        </FirewallRule>
+        <FirewallRule transactionid="Remove default firewall rules">
+            <Name>[example] Traffic to DMZ</Name>
+            <PolicyType>User</PolicyType>
+        </FirewallRule>
+        <FirewallRule transactionid="Remove default firewall rules">
+            <Name>Auto added firewall policy for MTA</Name>
+            <PolicyType>Network</PolicyType>
+        </FirewallRule>
+        <FirewallRule transactionid="Remove default firewall rules">
+            <Name>#Default_Network_Policy</Name>
+            <PolicyType>Network</PolicyType>
+        </FirewallRule>
+    </Remove>
+    <Set>
+        <Zone transactionid="Create MGMT zone">
+            <Name>MGMT</Name>
+            <Type>LAN</Type>
+            <Description>MGMT</Description>
+            <ApplianceAccess>
+                <AdminServices>
+                    <HTTPS>Enable</HTTPS>
+                    <SSH>Enable</SSH>
+                </AdminServices>
+                <NetworkServices>
+                    <DNS>Enable</DNS>
+                    <Ping>Enable</Ping>
+                </NetworkServices>
+            </ApplianceAccess>
+        </Zone>
+        <Zone transactionid="Create Voice zone">
+            <Name>Voice</Name>
+            <Type>LAN</Type>
+            <Description>Voice</Description>
+            <ApplianceAccess>
+                <NetworkServices>
+                    <DNS>Enable</DNS>
+                    <Ping>Enable</Ping>
+                </NetworkServices>
+            </ApplianceAccess>
+        </Zone>
+        <Zone transactionid="Update LAN zone">
+            <Name>LAN</Name>
+            <Type>LAN</Type>
+            <ApplianceAccess>
+                <AdminServices>
+                    <HTTPS>Enable</HTTPS>
+                    <SSH>Enable</SSH>
+                </AdminServices>
+                <AuthenticationServices>
+                    <ClientAuthentication>Disable</ClientAuthentication>
+                    <CaptivePortal>Disable</CaptivePortal>
+                    <ADSSO>Disable</ADSSO>
+                    <RadiusSSO>Disable</RadiusSSO>
+                    <ChromebookSSO>Disable</ChromebookSSO>
+                </AuthenticationServices>
+                <NetworkServices>
+                    <DNS>Enable</DNS>
+                    <Ping>Enable</Ping>
+                </NetworkServices>
+                <OtherServices>
+                    <WebProxy>Enable</WebProxy>
+                    <WirelessProtection>Disable</WirelessProtection>
+                    <UserPortal>Disable</UserPortal>
+                    <DynamicRouting>Disable</DynamicRouting>
+                    <SMTPRelay>Disable</SMTPRelay>
+                    <SNMP>Disable</SNMP>
+                </OtherServices>
+                <VPNServices>
+                    <VPNPortal>Enable</VPNPortal>
+                    <SSLVPN>Disable</SSLVPN>
+                </VPNServices>
+            </ApplianceAccess>
+        </Zone>
+        <Zone transactionid="Update WAN zone">
+            <Name>WAN</Name>
+            <Type>WAN</Type>
+            <ApplianceAccess>
+                <AdminServices>
+                    <HTTPS>Disable</HTTPS>
+                    <SSH>Disable</SSH>
+                </AdminServices>
+                <AuthenticationServices>
+                    <ClientAuthentication>Disable</ClientAuthentication>
+                    <CaptivePortal>Disable</CaptivePortal>
+                    <ADSSO>Disable</ADSSO>
+                    <RadiusSSO>Disable</RadiusSSO>
+                    <ChromebookSSO>Disable</ChromebookSSO>
+                </AuthenticationServices>
+                <NetworkServices>
+                    <DNS>Disable</DNS>
+                    <Ping>Enable</Ping>
+                </NetworkServices>
+                <VPNServices>
+                    <IPsec>Enable</IPsec>
+                    <RED>Disable</RED>
+                    <SSLVPN>Enable</SSLVPN>
+                    <VPNPortal>Disable</VPNPortal>
+                </VPNServices>
+                <OtherServices>
+                    <WebProxy>Disable</WebProxy>
+                    <WirelessProtection>Disable</WirelessProtection>
+                    <UserPortal>Disable</UserPortal>
+                    <DynamicRouting>Disable</DynamicRouting>
+                    <SMTPRelay>Disable</SMTPRelay>
+                    <SNMP>Disable</SNMP>
+                </OtherServices>
+            </ApplianceAccess>
+        </Zone>
+        <Zone transactionid="Update WiFi zone">
+            <Name>WiFi</Name>
+            <Type>LAN</Type>
+            <ApplianceAccess>
+                <AdminServices>
+                    <HTTPS>Disable</HTTPS>
+                    <SSH>Disable</SSH>
+                </AdminServices>
+                <AuthenticationServices>
+                    <ClientAuthentication>Disable</ClientAuthentication>
+                    <CaptivePortal>Disable</CaptivePortal>
+                    <ADSSO>Disable</ADSSO>
+                    <RadiusSSO>Disable</RadiusSSO>
+                    <ChromebookSSO>Disable</ChromebookSSO>
+                </AuthenticationServices>
+                <NetworkServices>
+                    <DNS>Enable</DNS>
+                    <Ping>Enable</Ping>
+                </NetworkServices>
+                <OtherServices>
+                    <WebProxy>Enable</WebProxy>
+                    <WirelessProtection>Disable</WirelessProtection>
+                    <UserPortal>Disable</UserPortal>
+                    <DynamicRouting>Disable</DynamicRouting>
+                    <SMTPRelay>Disable</SMTPRelay>
+                    <SNMP>Disable</SNMP>
+                </OtherServices>
+                <VPNServices>
+                    <IPsec>Disable</IPsec>
+                    <VPNPortal>Enable</VPNPortal>
+                    <SSLVPN>Disable</SSLVPN>
+                    <RED>Disable</RED>
+                </VPNServices>
+            </ApplianceAccess>
+        </Zone>
+        <Zone transactionid="Update DMZ zone">
+            <Name>DMZ</Name>
+            <Type>DMZ</Type>
+            <ApplianceAccess>
+                <AdminServices>
+                    <HTTPS>Disable</HTTPS>
+                    <SSH>Disable</SSH>
+                </AdminServices>
+                <AuthenticationServices>
+                    <ClientAuthentication>Disable</ClientAuthentication>
+                    <CaptivePortal>Disable</CaptivePortal>
+                    <ADSSO>Disable</ADSSO>
+                    <RadiusSSO>Disable</RadiusSSO>
+                    <ChromebookSSO>Disable</ChromebookSSO>
+                </AuthenticationServices>
+                <NetworkServices>
+                    <DNS>Enable</DNS>
+                    <Ping>Enable</Ping>
+                </NetworkServices>
+                <OtherServices>
+                    <WebProxy>Enable</WebProxy>
+                    <WirelessProtection>Disable</WirelessProtection>
+                    <UserPortal>Disable</UserPortal>
+                    <DynamicRouting>Disable</DynamicRouting>
+                    <SMTPRelay>Disable</SMTPRelay>
+                    <SNMP>Disable</SNMP>
+                </OtherServices>
+                <VPNServices>
+                    <VPNPortal>Disable</VPNPortal>
+                    <SSLVPN>Disable</SSLVPN>
+                </VPNServices>
+            </ApplianceAccess>
+        </Zone>
+        <Zone transactionid="Update VPN zone">
+            <Name>VPN</Name>
+            <Type>VPN</Type>
+            <ApplianceAccess>
+                <AdminServices>
+                    <HTTPS>Disable</HTTPS>
+                    <SSH>Disable</SSH>
+                </AdminServices>
+                <AuthenticationServices>
+                    <ClientAuthentication>Disable</ClientAuthentication>
+                    <CaptivePortal>Disable</CaptivePortal>
+                    <ADSSO>Disable</ADSSO>
+                    <RadiusSSO>Disable</RadiusSSO>
+                    <ChromebookSSO>Disable</ChromebookSSO>
+                </AuthenticationServices>
+                <NetworkServices>
+                    <DNS>Enable</DNS>
+                    <Ping>Enable</Ping>
+                </NetworkServices>
+                <OtherServices>
+                    <WebProxy>Disable</WebProxy>
+                    <WirelessProtection>Disable</WirelessProtection>
+                    <UserPortal>Disable</UserPortal>
+                    <DynamicRouting>Disable</DynamicRouting>
+                    <SMTPRelay>Disable</SMTPRelay>
+                    <SNMP>Disable</SNMP>
+                </OtherServices>
+                <VPNServices>
+                    <VPNPortal>Disable</VPNPortal>
+                    <SSLVPN>Disable</SSLVPN>
+                </VPNServices>
+            </ApplianceAccess>
+        </Zone>
+        <Interface transactionid="Set WAN Static IP">
+            <IPv4Configuration>Enable</IPv4Configuration>
+            <Hardware>Port2</Hardware>
+            <Name>WAN</Name>
+            <NetworkZone>WAN</NetworkZone>
+            <IPv4Assignment>Static</IPv4Assignment>
+            <MTU>1500</MTU>
+            <MSS>
+                <OverrideMSS>Disable</OverrideMSS>
+                <MSSValue>1460</MSSValue>
+            </MSS> 
+            <IPAddress>{{wan-static-ip}}</IPAddress>
+            <Netmask>{{wan-netmask}}</Netmask>
+            <GatewayName>{{wan-gatewayname}}</GatewayName>
+            <GatewayIP>{{wan-gateway-ip}}</GatewayIP>
+        </Interface>
+        <GatewayConfiguration transactionid="Set WAN Gateway Failover Rules">
+            <Gateway>
+                <Name>{{wan-gatewayname}}</Name>
+                <IPFamily>IPv4</IPFamily>
+                <IPAddress>{{wan-gateway-ip}}</IPAddress>
+                <Type>Active</Type>
+                <Weight>1</Weight>
+                <FailOverRules>
+                    <Rule>
+                        <Protocol>PING</Protocol>
+                        <IPAddress>{{wan-gateway-ip}}</IPAddress>
+                        <Port>*</Port>
+                        <Condition>AND</Condition>
+                    </Rule>
+                    <Rule>
+                        <Protocol>PING</Protocol>
+                        <IPAddress>8.8.8.8</IPAddress>
+                        <Port>*</Port>
+                        <Condition>AND</Condition>
+                    </Rule>
+                </FailOverRules>
+            </Gateway>
+        </GatewayConfiguration>
+        <Interface transactionid="Set LAN Interface">
+            <IPv4Configuration>Enable</IPv4Configuration>
+            <Hardware>Port1</Hardware>
+            <Name>LAN</Name>
+            <NetworkZone>LAN</NetworkZone>
+            <IPv4Assignment>Static</IPv4Assignment>
+            <MTU>1500</MTU>
+            <MSS>
+                <OverrideMSS>Disable</OverrideMSS>
+                <MSSValue>1460</MSSValue>
+            </MSS> 
+            <IPAddress>{{lan-static-ip}}</IPAddress>
+            <Netmask>{{lan-netmask}}</Netmask>
+            <GatewayName />
+            <GatewayIP />
+        </Interface>
+        <DHCPServer transactionid="Set LAN DHCP Server">
+            <Name>LAN</Name>
+            <Interface>Port1</Interface>
+            <UseInterfaceIPasGateway>UseInterfaceIPAsGateway</UseInterfaceIPasGateway>
+            <IPLease>
+                <IP>{{lan-dhcp-start}}-{{lan-dhcp-end}}</IP>
+            </IPLease>
+            <ConflictDetection>Enable</ConflictDetection>
+            <SubnetMask>{{lan-netmask}}</SubnetMask>
+            <DefaultLeaseTime>1440</DefaultLeaseTime>
+            <MaxLeaseTime>2880</MaxLeaseTime>
+            <UseApplianceDNSSettings>Enable</UseApplianceDNSSettings>
+        </DHCPServer>
+        <VLAN transactionid="Add MGMT VLAN Interface">
+            <Zone>MGMT</Zone>
+            <Interface>Port1</Interface>
+            <Hardware>Port1.{{mgmt-vlan}}</Hardware>
+            <Name>MGMT</Name>
+            <VLANID>{{mgmt-vlan}}</VLANID>
+            <IPv4Configuration>Enable</IPv4Configuration>
+            <IPv4Assignment>Static</IPv4Assignment>
+            <IPAddress>{{mgmt-firewall-ip}}</IPAddress>
+            <Netmask>{{mgmt-subnet}}</Netmask>
+        </VLAN>
+        <DHCPServer transactionid="Set MGMT DHCP Server">
+            <Name>MGMT</Name>
+            <Interface>Port1.{{mgmt-vlan}}</Interface>
+            <UseInterfaceIPasGateway>UseInterfaceIPAsGateway</UseInterfaceIPasGateway>
+            <IPLease>
+                <IP>{{mgmt-dhcp-start}}-{{mgmt-dhcp-end}}</IP>
+            </IPLease>
+            <ConflictDetection>Enable</ConflictDetection>
+            <SubnetMask>{{mgmt-subnet}}</SubnetMask>
+            <DefaultLeaseTime>1440</DefaultLeaseTime>
+            <MaxLeaseTime>2880</MaxLeaseTime>
+            <UseApplianceDNSSettings>Enable</UseApplianceDNSSettings>
+        </DHCPServer>
+        <Interface transactionid="Set Voice Interface">
+            <IPv4Configuration>Enable</IPv4Configuration>
+            <Hardware>Port3</Hardware>
+            <Name>Voice</Name>
+            <NetworkZone>Voice</NetworkZone>
+            <IPv4Assignment>Static</IPv4Assignment>
+            <MTU>1500</MTU>
+            <MSS>
+                <OverrideMSS>Disable</OverrideMSS>
+                <MSSValue>1460</MSSValue>
+            </MSS> 
+            <IPAddress>{{voice-firewall-ip}}</IPAddress>
+            <Netmask>{{voice-subnet}}</Netmask>
+            <GatewayName />
+            <GatewayIP />
+        </Interface>
+        <DHCPServer transactionid="Set Voice DHCP Server">
+            <Name>Voice</Name>
+            <Interface>Port3</Interface>
+            <UseInterfaceIPasGateway>UseInterfaceIPAsGateway</UseInterfaceIPasGateway>
+            <IPLease>
+                <IP>{{voice-dhcp-start}}-{{voice-dhcp-end}}</IP>
+            </IPLease>
+            <DomainName>{{voice-domain-name}}</DomainName>
+            <ConflictDetection>Enable</ConflictDetection>
+            <SubnetMask>{{voice-subnet}}</SubnetMask>
+            <DefaultLeaseTime>1440</DefaultLeaseTime>
+            <MaxLeaseTime>2880</MaxLeaseTime>
+            <UseApplianceDNSSettings>Enable</UseApplianceDNSSettings>
+            <DHCPOption>
+                <Options>
+                    <OptionName>Vendor_Encapsulated_Options(43)</OptionName>
+                    <OptionCode>43</OptionCode>
+                    <OptionValue>{{voice-prov-server}}</OptionValue>
+                </Options>
+                <Options>
+                    <OptionName>TFTP_Server_Name(66)</OptionName>
+                    <OptionCode>66</OptionCode>
+                    <OptionValue>{{voice-prov-server}}</OptionValue>
+                </Options>
+            </DHCPOption>
+        </DHCPServer>
+        <SyslogServers transactionid="Setup SNMP logging settings">
+            <Name>SNMP Manager</Name>
+            <ServerAddress>{{snmp-manager-ip}}</ServerAddress>
+            <Port>514</Port>
+            <EnableSecureConnection>Disable</EnableSecureConnection>
+            <Facility>DAEMON</Facility>
+            <SeverityLevel>Notification</SeverityLevel>
+            <Format>DeviceStandardFormat</Format>
+            <LogSettings>
+                <SecurityPolicy>
+                    <PolicyRules>Disable</PolicyRules>
+                    <InvalidTraffic>Disable</InvalidTraffic>
+                    <LocalACLs>Disable</LocalACLs>
+                    <DoSAttack>Enable</DoSAttack>
+                    <DroppedICMPRedirectedPacket>Enable</DroppedICMPRedirectedPacket>
+                    <DroppedSourceRoutedPacket>Enable</DroppedSourceRoutedPacket>
+                    <DroppedFragmentedTraffic>Enable</DroppedFragmentedTraffic>
+                    <MACFiltering>Enable</MACFiltering>
+                    <IP-MACPairFiltering>Enable</IP-MACPairFiltering>
+                    <IPSpoofPrevention>Enable</IPSpoofPrevention>
+                    <SSLVPNTunnel>Enable</SSLVPNTunnel>
+                    <ProtectedApplicationServer>Disable</ProtectedApplicationServer>
+                    <Heartbeat>Disable</Heartbeat>
+                    <ICMPErrorMessage>Disable</ICMPErrorMessage>
+                    <BridgeACLs>Disable</BridgeACLs>
+                </SecurityPolicy>
+                <IPS>
+                    <Anomaly>Enable</Anomaly>
+                    <Signatures>Disable</Signatures>
+                </IPS>
+                <AntiVirus>
+                    <HTTP>Disable</HTTP>
+                    <FTP>Disable</FTP>
+                    <SMTP>Disable</SMTP>
+                    <POP3>Disable</POP3>
+                    <IMAP>Disable</IMAP>
+                    <HTTPS>Disable</HTTPS>
+                    <SMTPS>Disable</SMTPS>
+                    <POPS>Disable</POPS>
+                    <IMAPS>Disable</IMAPS>
+                </AntiVirus>
+                <AntiSpam>
+                    <SMTP>Disable</SMTP>
+                    <POP3>Disable</POP3>
+                    <IMAP>Disable</IMAP>
+                    <SMTPS>Disable</SMTPS>
+                    <POPS>Disable</POPS>
+                    <IMAPS>Disable</IMAPS>
+                </AntiSpam>
+                <ContentFiltering>
+                    <WebFilter>Disable</WebFilter>
+                    <ApplicationFilter>Disable</ApplicationFilter>
+                    <WebContentPolicy>Disable</WebContentPolicy>
+                    <SSLTLS>Disable</SSLTLS>
+                </ContentFiltering>
+                <Events>
+                    <AdminEvents>Enable</AdminEvents>
+                    <AuthenticationEvents>Enable</AuthenticationEvents>
+                    <SystemEvents>Enable</SystemEvents>
+                </Events>
+                <WebServerProtection>
+                    <WAFEvents>Disable</WAFEvents>
+                </WebServerProtection>
+                <ATP>
+                    <ATPEvents>Disable</ATPEvents>
+                </ATP>
+                <Wireless>
+                    <AccessPoints_SSID>Disable</AccessPoints_SSID>
+                </Wireless>
+                <Heartbeat>
+                    <EndpointStatus>Disable</EndpointStatus>
+                </Heartbeat>
+                <SystemHealth>
+                    <Usage>Disable</Usage>
+                </SystemHealth>
+                <ZeroDayProtection>
+                    <ZeroDayProtectionEvents>Enable</ZeroDayProtectionEvents>
+                </ZeroDayProtection>
+                <SDWAN>
+                    <Profile>Disable</Profile>
+                    <SLA>Disable</SLA>
+                    <Route>Disable</Route>
+                </SDWAN>
+            </LogSettings>
+        </SyslogServers>
+        <DNS transactionid="Set System DNS Servers">
+            <IPv4Settings>
+                <ObtainDNSFrom>Static</ObtainDNSFrom>
+                <DNSIPList>
+                    <DNS1>8.8.8.8</DNS1>
+                    <DNS2>8.8.4.4</DNS2>
+                    <DNS3>1.1.1.1</DNS3>
+                </DNSIPList>
+            </IPv4Settings>
+        </DNS>
+        <ARPConfiguration transactionid="Set ARP neighbor settings">
+            <ARPCacheEntryTimeOut>10</ARPCacheEntryTimeOut>
+            <LogPossibleARPPoisoningAttempts>Enable</LogPossibleARPPoisoningAttempts>
+        </ARPConfiguration>
+        <IPHost transactionid="Add NOC-IP Host">
+            <Name>NOC-IP</Name>
+            <IPFamily>IPv4</IPFamily>
+            <Description>NOC-IP</Description>
+            <HostType>IP</HostType>
+            <IPAddress>{{noc-ip}}</IPAddress>
+        </IPHost>
+        <IPHost transactionid="Add SNMP Manager Host">
+            <Name>SNMP Manager</Name>
+            <IPFamily>IPv4</IPFamily>
+            <Description>SNMP Manager</Description>
+            <HostType>IP</HostType>
+            <IPAddress>{{snmp-manager-ip}}</IPAddress>
+        </IPHost>
+        <IPHost transactionid="Add Cloud Voice Network 1">
+            <Name>Voice Network 1</Name>
+            <IPFamily>IPv4</IPFamily>
+            <Description>Voice Network 1</Description>
+            <HostType>Network</HostType>
+            <IPAddress>{{voice-network-1}}</IPAddress>
+            <Subnet>{{voice-network-1-subnet}}</Subnet>
+        </IPHost>
+        <IPHost transactionid="Add Cloud Voice Network 2">
+            <Name>Voice Network 2</Name>
+            <IPFamily>IPv4</IPFamily>
+            <Description>Voice Network 2</Description>
+            <HostType>Network</HostType>
+            <IPAddress>{{voice-network-2}}</IPAddress>
+            <Subnet>{{voice-network-2-subnet}}</Subnet>
+        </IPHost>
+        <IPHostGroup transactionid="Add Cloud Voice Network Group">
+            <Name>Voice Networks</Name>
+            <IPFamily>IPv4</IPFamily>
+            <Description>Voice Networks</Description>
+            <HostList>
+                <Host>Voice Network 1</Host>
+                <Host>Voice Network 2</Host>
+            </HostList>
+        </IPHostGroup>
+        <Services transactionid="Add Voice QoS services">
+            <Name>Voice QoS Services</Name>
+            <Description>Voice QoS Ports</Description>
+            <Type>TCPorUDP</Type>
+            <ServiceDetails>
+                <ServiceDetail>
+                    <Protocol>TCP</Protocol>
+                    <SourcePort>*</SourcePort>
+                    <DestinationPort>5060</DestinationPort>
+                </ServiceDetail>
+                <ServiceDetail>
+                    <Protocol>UDP</Protocol>
+                    <SourcePort>*</SourcePort>
+                    <DestinationPort>5060</DestinationPort>
+                </ServiceDetail>
+                <ServiceDetail>
+                    <Protocol>TCP</Protocol>
+                    <SourcePort>*</SourcePort>
+                    <DestinationPort>5061</DestinationPort>
+                </ServiceDetail>
+                <ServiceDetail>
+                    <Protocol>UDP</Protocol>
+                    <SourcePort>*</SourcePort>
+                    <DestinationPort>1024:65535</DestinationPort>
+                </ServiceDetail>
+                <ServiceDetail>
+                    <Protocol>TCP</Protocol>
+                    <SourcePort>*</SourcePort>
+                    <DestinationPort>10007:10009</DestinationPort>
+                </ServiceDetail>
+            </ServiceDetails>
+        </Services>
+        <ATP transactionid="Setup ATP - Sophos X-Ops Thread Feeds">
+            <ThreatProtectionStatus>Enable</ThreatProtectionStatus>
+            <InspectContent>all</InspectContent>
+            <Policy>Log and Drop</Policy>
+            <HostException>
+                <Host>NOC-IP</Host>
+                <Host>SNMP Manager</Host>
+                <Host>Voice Networks</Host>
+            </HostException>
+        </ATP>
+        <IPSSwitch transactionid="Enable IPS Switch">
+            <Status>Enable</Status>
+        </IPSSwitch>
+        <FirewallRule transactionid="Create Voice QoS Firewall Rule">
+            <Name>Voice QoS</Name>
+            <IPFamily>IPv4</IPFamily>
+            <Status>Enable</Status>
+            <Position>Top</Position>
+            <PolicyType>Network</PolicyType>
+            <NetworkPolicy>
+                <Action>Accept</Action>
+                <LogTraffic>Enable</LogTraffic>
+                <DestinationZones>
+                    <Zone>WAN</Zone>
+                </DestinationZones>
+                <Services>
+                    <Service>Voice QoS Services</Service>
+                </Services>
+                <DestinationNetworks>
+                    <Network>Voice Networks</Network>
+                </DestinationNetworks>
+                <WebFilter>None</WebFilter>
+                <ApplicationControl>None</ApplicationControl>
+                <IntrusionPrevention>None</IntrusionPrevention>
+                <TrafficShappingPolicy>VoIP Guarantee</TrafficShappingPolicy>
+            </NetworkPolicy>
+        </FirewallRule>
+        <NATRule transactionid="Create Voice QoS Linked NAT Rule">
+            <Name>Voice QoS</Name>
+            <IPFamily>IPv4</IPFamily>
+            <Status>Enable</Status>
+            <Position>Top</Position>
+            <LinkedFirewallrule>Voice QoS</LinkedFirewallrule>
+            <TranslatedDestination>Original</TranslatedDestination>
+            <TranslatedService>Original</TranslatedService>
+            <OverrideInterfaceNATPolicy>Disable</OverrideInterfaceNATPolicy>
+            <TranslatedSource>MASQ</TranslatedSource>
+        </NATRule>
+        <FirewallRule transactionid="Add Default Internet Access Rule">
+            <Name>Default Internet Access</Name>
+            <IPFamily>IPv4</IPFamily>
+            <Status>Enable</Status>
+            <Position>Bottom</Position>
+            <PolicyType>Network</PolicyType>
+            <NetworkPolicy>
+                <Action>Accept</Action>
+                <LogTraffic>Enable</LogTraffic>
+                <SourceZones>
+                    <Zone>WiFi</Zone>
+                    <Zone>MGMT</Zone>
+                    <Zone>Voice</Zone>
+                    <Zone>LAN</Zone>
+                </SourceZones>
+                <DestinationZones>
+                    <Zone>WAN</Zone>
+                </DestinationZones>
+                <WebFilter>Default Policy</WebFilter>
+                <ScanVirus>Enable</ScanVirus>
+                <ZeroDayProtection>Enable</ZeroDayProtection>
+                <ScanFTP>Enable</ScanFTP>
+                <ApplicationControl>Block very high risk (Risk Level 5) apps</ApplicationControl>
+                <IntrusionPrevention>generalpolicy</IntrusionPrevention>
+                <TrafficShappingPolicy>None</TrafficShappingPolicy>
+            </NetworkPolicy>
+        </FirewallRule>
+        <SSLTLSInspectionSettings transactionid="Disable TLS Inspection">
+            <RSACA>SecurityAppliance_SSL_CA</RSACA>
+            <ECCA>SecurityAppliance_SSL_CA</ECCA>
+            <SSLv2SSLv3>Allow without decryption</SSLv2SSLv3>
+            <SSLCompression>Allow without decryption</SSLCompression>
+            <SSLConnectionsExceeded>Allow without decryption</SSLConnectionsExceeded>
+            <TLS13Decryption>Decrypt as 1.3</TLS13Decryption>
+            <SSLTLSEngine>Enabled</SSLTLSEngine>
+            <SSLTLSInspection>Disabled</SSLTLSInspection>
+        </SSLTLSInspectionSettings>
+        <ZeroDayProtectionSettings transactionid="Set Zero-Day Data Center Location">
+            <DataCenterLocation>us.sandbox.sophos.com</DataCenterLocation>
+        </ZeroDayProtectionSettings>
+        <LocalServiceACL transactionid="Add NOC-ACCESS ACL">
+            <RuleName>NOC-ACCESS</RuleName>
+            <Description>NOC-ACCESS</Description>
+            <Position>Top</Position>
+            <IPFamily>IPv4</IPFamily>
+            <SourceZone>WAN</SourceZone>
+            <Hosts>
+                <Host>NOC-IP</Host>
+                <Host>SNMP Manager</Host>
+            </Hosts>
+            <Services>
+                <Service>HTTPS</Service>
+                <Service>Ping</Service>
+                <Service>SSH</Service>
+                <Service>SNMP</Service>
+            </Services>
+            <Action>accept</Action>
+        </LocalServiceACL>
+        <LocalServiceACL transactionid="Add DENY-HTTPS-SSH ACL">
+            <RuleName>DENY-HTTPS-SSH</RuleName>
+            <Description>DENY-HTTPS-SSH</Description>
+            <Position>Bottom</Position>
+            <IPFamily>IPv4</IPFamily>
+            <SourceZone>WAN</SourceZone>
+            <Hosts />
+            <Services>
+                    <Service>HTTPS</Service>
+                    <Service>SSH</Service>
+            </Services>
+            <Action>drop</Action>
+        </LocalServiceACL>
+        <Time transactionid="Set time and NTP">
+            <TimeZone>America/New_York</TimeZone>
+            <PredefinedNTPServer>Enable</PredefinedNTPServer>
+            <CustomNTPServer>
+                <NTPServer>us.pool.ntp.org</NTPServer>
+            </CustomNTPServer>
+            <SyncNow>1</SyncNow>
+        </Time>
+        <Notification transactionid="Setup STMP and email notifications">
+            <NotificationServer>1</NotificationServer>
+            <MailServer>{{smtp-server-ip-hostname}}</MailServer>
+            <Port>25</Port>
+            <AuthenticationRequired>Enable</AuthenticationRequired>
+            <Username>{{smtp-username}}</Username>
+            <Password>{{smtp-password}}</Password>
+            <SenderAddress>{{notification-sender-email}}</SenderAddress>
+            <Recepient>{{notification-recipient-email}}</Recepient>
+            <ConnectionSecurity>STARTTLS</ConnectionSecurity>
+            <ManagementInterface>Port2</ManagementInterface>
+            <IPFamily>IPv4</IPFamily>
+        </Notification>
+        <SNMPAgentConfiguration transactionid="Configure SNMP Agent">
+            <Configuration>Enable</Configuration>
+            <Name>{{firewall-hostname}}</Name>
+            <Location>{{customer-address}}</Location>
+            <ContactPerson>{{customer-contact}}</ContactPerson>
+            <ManagerPort>162</ManagerPort>
+            <AgentPort>161</AgentPort>
+        </SNMPAgentConfiguration>
+        <SNMPCommunity transactionid="Configure SNMP community">
+            <Name>{{snmp-string}}</Name>
+            <Description />
+            <IPAddress>{{snmp-manager-ip}}</IPAddress>
+            <Supportv1ProtocolVersion>Enable</Supportv1ProtocolVersion>
+            <Supportv2cProtocolVersion>Enable</Supportv2cProtocolVersion>
+            <TrapSupportv1>Disable</TrapSupportv1>
+            <TrapSupportv2c>Disable</TrapSupportv2c>
+        </SNMPCommunity>
+        <BackupRestore transactionid="Configure email backups">
+            <ScheduleBackup>
+                <BackupMode>Mail</BackupMode>
+                <BackupPrefix>{{firewall-hostname}}</BackupPrefix>
+                <EmailAddress>{{backup-recipient-email}}</EmailAddress>
+                <BackupFrequency>Weekly</BackupFrequency>
+                <Day>Monday</Day>
+                <Hour>00</Hour>
+                <Minute>00</Minute>
+                <EncryptionPassword>{{backup-encryption-password}}</EncryptionPassword>
+            </ScheduleBackup>
+        </BackupRestore>
+    </Set>
+</Request>
